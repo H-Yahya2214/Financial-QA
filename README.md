@@ -69,7 +69,7 @@ fig.show()
 ```
 ## 📈 Project Structure
 ```bash
-financial-qa-system/
+financial-qa/
 ├── notebooks/
 │   └── GRAD_Project_last.ipynb    # Main analysis notebook
 ├── src/
