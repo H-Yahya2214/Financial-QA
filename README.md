@@ -58,6 +58,7 @@ $50K → 50000 USD
 40-50K → 40000-50000 USD
 
 30k ish → 30000 USD approx.
+
 -**Visualization**:
 Generate interactive word frequency charts and tag clouds:
 ```bash
