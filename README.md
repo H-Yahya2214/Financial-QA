@@ -1,4 +1,4 @@
-# Financial Question Answering System
+# Financial Question Answering Chatbot
 
 A comprehensive NLP pipeline for processing and analyzing financial question-answer pairs from the FIQA dataset. This project includes text cleaning, normalization, visualization, and prepares data for financial question answering tasks.
 
