@@ -124,3 +124,87 @@ def extract_financial_entities(text: str) -> List[Tuple[str, str]]:
     # Check all patterns
     all_patterns = currency_patterns + instrument_patterns + term_patterns
     
+    for pattern, entity_type in all_patterns:
+        matches = re.finditer(pattern, text, re.IGNORECASE)
+        for match in matches:
+            entities.append((match.group(), entity_type))
+    
+    return entities
+
+
+def calculate_text_statistics(texts: List[str]) -> dict:
+    """
+    Calculate various text statistics
+    
+    Parameters:
+    -----------
+    texts : List[str]
+        List of text strings
+    
+    Returns:
+    --------
+    dict
+        Dictionary with text statistics
+    """
+    stats = {
+        'total_texts': len(texts),
+        'total_words': 0,
+        'total_characters': 0,
+        'avg_words_per_text': 0,
+        'avg_chars_per_text': 0,
+        'avg_word_length': 0,
+        'vocabulary_size': 0
+    }
+    
+    all_words = []
+    for text in texts:
+        words = text.split()
+        stats['total_words'] += len(words)
+        stats['total_characters'] += len(text)
+        all_words.extend(words)
+    
+    if texts:
+        stats['avg_words_per_text'] = stats['total_words'] / len(texts)
+        stats['avg_chars_per_text'] = stats['total_characters'] / len(texts)
+    
+    if all_words:
+        stats['avg_word_length'] = sum(len(word) for word in all_words) / len(all_words)
+        stats['vocabulary_size'] = len(set(all_words))
+    
+    return stats
+
+
+def create_text_length_histogram(texts: List[str], title: str = "Text Length Distribution") -> go.Figure:
+    """
+    Create a histogram of text lengths
+    
+    Parameters:
+    -----------
+    texts : List[str]
+        List of text strings
+    title : str
+        Chart title
+    
+    Returns:
+    --------
+    go.Figure
+        Plotly figure object
+    """
+    text_lengths = [len(text.split()) for text in texts]
+    
+    fig = go.Figure()
+    fig.add_trace(go.Histogram(
+        x=text_lengths,
+        nbinsx=50,
+        marker_color='blue',
+        opacity=0.7
+    ))
+    
+    fig.update_layout(
+        title=title,
+        xaxis_title="Number of Words",
+        yaxis_title="Frequency",
+        template="plotly_white"
+    )
+    
+    return fig
