@@ -79,6 +79,8 @@ financial-qa/
 │   ├── data_cleaning.py           # Text normalization functions
 │   ├── visualization.py           # Plotting utilities
 │   └── preprocessing.py           # NLP preprocessing
+├── images/
+│   └── demo.jpeg
 ├── requirements.txt
 ├── README.md
 └── .gitignore
