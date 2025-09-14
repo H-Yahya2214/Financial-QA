@@ -24,7 +24,7 @@ The project uses the `bilalRahib/fiqa-personal-finance-dataset` from Hugging Fac
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/H-Yahya2214/financial-qa-system.git
+git clone https://github.com/H-Yahya2214/financial-qa.git
 cd financial-qa
 ```
 2. Install dependencies:
